@@ -1,0 +1,44 @@
+name: Bug
+description: Something behaves differently from its specification. Same format as a feature, so the factory can plan, fix, verify and ship it.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe what happens and what should happen. Decide the details here; an open question holds unattended work until a person answers.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happens, what you expected, and how to reproduce it.
+      placeholder: |
+        Observed: ...
+        Expected: ...
+        Steps: 1. ... 2. ... 3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: One testable line per scenario, including the regression case. Each line becomes a row in the verification record.
+      placeholder: |
+        - Given <state>, when <action>, then <correct result>.
+      value: |
+        - Given ..., when ..., then ...
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Decisions already made (no clarification needed)
+      description: Constraints for the fix, such as no behaviour change elsewhere, no new dependencies, and which test proves the regression is gone. Write "none" if there are none.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Files or components touched, the capability (living spec) this belongs to, and what is explicitly out of scope.
+    validations:
+      required: true

@@ -1,0 +1,49 @@
+name: Feature
+description: A small change the factory can plan, build, verify and ship from this issue. One issue is one feature directory and one pull request.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep it small and decide the details here. In an unattended run an open question holds the work until a person answers, so write down what you already know.
+  - type: textarea
+    id: story
+    attributes:
+      label: Story
+      description: Who wants what, and why.
+      placeholder: As a <user> I want <capability>, so that <outcome>.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: One testable line per scenario. Each line becomes a row in the verification record and needs a test or a manual check as evidence.
+      placeholder: |
+        - Given <state>, when <action>, then <observable result>.
+        - Given <state>, then <observable result>.
+      value: |
+        - Given ..., when ..., then ...
+    validations:
+      required: true
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Decisions already made (no clarification needed)
+      description: Choices the planner must not reopen, such as format, placement, naming, dependencies and which test covers it. Write "none" if there are none.
+      placeholder: |
+        - No new dependencies, no settings.
+        - One browser test in tests/... covers the main scenario and the empty state.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Files or components touched, the capability (living spec) this belongs to, and what is explicitly out of scope.
+      placeholder: |
+        - src/... (and styles only if spacing needs it)
+        - Capability: <name from living-specs.yml>
+        - Out of scope: ...
+    validations:
+      required: true
