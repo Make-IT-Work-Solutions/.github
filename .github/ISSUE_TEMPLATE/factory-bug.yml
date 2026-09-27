@@ -5,12 +5,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Describe what happens and what should happen. Decide the details here; an open question holds unattended work until a person answers.
+        Say what happens and what should happen, in a few lines. The planner turns this into a spec and asks you about the rest before anything is fixed. Short is fine.
   - type: textarea
     id: problem
     attributes:
       label: Problem
-      description: What happens, what you expected, and how to reproduce it.
+      description: What happens, what you expected, and how to reproduce it. A few lines.
       placeholder: |
         Observed: ...
         Expected: ...
@@ -21,24 +21,25 @@ body:
     id: acceptance
     attributes:
       label: Acceptance criteria
-      description: One testable line per scenario, including the regression case. Each line becomes a row in the verification record.
+      description: What must be true when it is fixed, in your own words. One to three lines; the spec makes them precise and testable.
       placeholder: |
-        - Given <state>, when <action>, then <correct result>.
+        - Doing ... now gives ... instead of ...
+        - Everything else still works as before.
       value: |
-        - Given ..., when ..., then ...
+        - 
     validations:
       required: true
   - type: textarea
     id: decisions
     attributes:
       label: Decisions already made (no clarification needed)
-      description: Constraints for the fix, such as no behaviour change elsewhere, no new dependencies, and which test proves the regression is gone. Write "none" if there are none.
+      description: Anything you already know for sure, so the planner does not ask about it. Write "none" if you have not decided anything yet. For an unattended run, decide everything here.
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
       label: Scope
-      description: Files or components touched, the capability (living spec) this belongs to, and what is explicitly out of scope.
+      description: Which part of the app this touches, and what it explicitly does not. One or two lines.
     validations:
       required: true

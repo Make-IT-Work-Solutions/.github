@@ -5,12 +5,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        Keep it small and decide the details here. In an unattended run an open question holds the work until a person answers, so write down what you already know.
+        Write down what you already know, in a few lines. The planner turns this into a spec and asks you about the rest before anything is built. Short is fine.
   - type: textarea
     id: story
     attributes:
       label: Story
-      description: Who wants what, and why.
+      description: Who wants what, and why. One or two sentences.
       placeholder: As a <user> I want <capability>, so that <outcome>.
     validations:
       required: true
@@ -18,32 +18,31 @@ body:
     id: acceptance
     attributes:
       label: Acceptance criteria
-      description: One testable line per scenario. Each line becomes a row in the verification record and needs a test or a manual check as evidence.
+      description: What must be true when it is done, in your own words. Two to five lines is enough; the spec makes them precise and testable.
       placeholder: |
-        - Given <state>, when <action>, then <observable result>.
-        - Given <state>, then <observable result>.
+        - The app shows ... when ...
+        - Everything else still works as before, also on a phone screen.
       value: |
-        - Given ..., when ..., then ...
+        - 
     validations:
       required: true
   - type: textarea
     id: decisions
     attributes:
       label: Decisions already made (no clarification needed)
-      description: Choices the planner must not reopen, such as format, placement, naming, dependencies and which test covers it. Write "none" if there are none.
+      description: Anything you already know for sure, so the planner does not ask about it. Write "none" if you have not decided anything yet. For an unattended run, decide everything here.
       placeholder: |
-        - No new dependencies, no settings.
-        - One browser test in tests/... covers the main scenario and the empty state.
+        - No new dependencies. No functional changes.
+        - Dark theme only.
     validations:
       required: true
   - type: textarea
     id: scope
     attributes:
       label: Scope
-      description: Files or components touched, the capability (living spec) this belongs to, and what is explicitly out of scope.
+      description: Which part of the app this touches, and what it explicitly does not. One or two lines.
       placeholder: |
-        - src/... (and styles only if spacing needs it)
-        - Capability: <name from living-specs.yml>
-        - Out of scope: ...
+        - The editor only.
+        - Out of scope: new pages, copy changes.
     validations:
       required: true
